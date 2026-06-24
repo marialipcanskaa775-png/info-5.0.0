@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Электронное учебное пособие - Тесты</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @font-face {
+            font-family: 'Jun';
+            src: url('ofont.ru_Jun.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .parallax {
+            background-image: url('Медиа/Фон_сайта!.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -2;
+        }
+
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(244, 244, 244, 0.85);
+            z-index: -1;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Jun', Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #2F4F4F;
+            font-size: 18px;
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background-color: #66CDAA;
+            background-image: url('Медиа/Фон_сайта2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 15px 20px 20px;
+            border-bottom: 5px solid #008080;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(102, 205, 170, 0.7);
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            padding-bottom: 10px;
+        }
+
+        .header-content h1, 
+        .header-content h2,
+        .header-content p {
+            color: #203A3A;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+            margin: 8px 0;
+        }
+
+        .header-content h1 {
+            margin-top: 0;
+            font-size: 2.8em;
+        }
+
+        .header-content h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .header-content p {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-color: #66CDAA;
+            background-image: url('Медиа/Фон_сайта2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 20px;
+            border-top: 5px solid #008080;
+            color: #2F4F4F;
+            font-size: 1.1em;
+            font-weight: 500;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(102, 205, 170, 0.7);
+            z-index: 0;
+        }
+
+        footer p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            color: #203A3A;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            border: 5px solid #008080;
+            min-height: 700px;
+        }
+
+        nav {
+            width: 250px;
+            border-right: 1px solid #ccc;
+            padding: 20px;
+            font-size: 1.1em;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        nav ul li {
+            margin-bottom: 12px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2F4F4F;
+            display: block;
+            padding: 5px 0;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+            color: #008080;
+        }
+
+        nav ul li strong {
+            color: #008080;
+            font-size: 1.1em;
+        }
+
+        .nav-image {
+            margin-top: 20px;
+            text-align: center;
+            padding: 0;
+            border: none;
+        }
+
+        .nav-image img {
+            max-width: 100%;
+            height: auto;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .nav-image .image-caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #2F4F4F;
+            font-style: italic;
+        }
+
+        .nav-search {
+            margin-top: 20px;
+            padding: 0;
+            border: none;
+        }
+
+        .nav-search form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-search input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #66CDAA;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Jun', Arial, sans-serif;
+            color: #2F4F4F;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-sizing: border-box;
+        }
+
+        .nav-search input::placeholder {
+            color: #66CDAA;
+        }
+
+        .nav-search input:focus {
+            outline: none;
+            border-color: #008080;
+            box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+        }
+
+        .nav-search button {
+            width: 100%;
+            padding: 12px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Jun', Arial, sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-search button:hover {
+            background-color: #006666;
+        }
+
+        .nav-search button:active {
+            background-color: #004d4d;
+            transform: translateY(1px);
+        }
+
+        #search-results {
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            background: white;
+            border: 1px solid #66CDAA;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        main {
+            padding: 25px;
+            flex: 1;
+            font-size: 1.1em;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            color: #2F4F4F;
+        }
+
+        main h3 {
+            color: #008080;
+            border-bottom: 2px solid #66CDAA;
+            padding-bottom: 8px;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        main h3:hover {
+            opacity: 0.8;
+            padding-left: 10px;
+        }
+
+        .test-item {
+            margin-bottom: 25px;
+        }
+
+        .test-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding-left: 20px;
+        }
+
+        .test-content.open {
+            max-height: 8000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .question-block {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(102, 205, 170, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #008080;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .answer-option {
+            margin: 8px 0 8px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .answer-option input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .answer-option label {
+            cursor: pointer;
+            margin: 0;
+        }
+        
+        .check-test-button {
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Jun', Arial, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .check-test-button:hover {
+            background-color: #006666;
+        }
+        
+        .test-result {
+            margin-top: 15px;
+            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #e9ecef;
+            border-left: 5px solid #008080;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .result-message {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .certificate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: normal;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Jun', Arial, sans-serif;
+        }
+
+        .certificate-btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .test-item.open h3 .header-icon {
+            transform: rotate(90deg);
+        }
+
+        .change {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .change:hover {
+            color: #08fdd8 !important;
+            font-size: 30px !important;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parallax"></div>
+    <div class="content-wrapper">
+        <header>
+            <div class="header-content">
+                <h1>ЭЛЕКТРОННОЕ УЧЕБНОЕ ПОСОБИЕ</h1>
+                <h2>по дисциплине «ИНФОРМАТИКА»</h2>
+                <p>Гуковский строительный техникум "ГСТ" • 09.02.07 "Информационные системы и программирование" • Данцева Кристина Андреевна • 2026г.</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="Главная 2.0.html">Главная</a></li>
+                    <li><a href="Программа.html">Программа</a></li>
+                    <li><a href="Темы.html">Темы учебных занятий</a></li>
+                    <li><a href="Практика.html">Практические работы</a></li>
+                    <li><strong>▶ Тесты</strong></li>
+                    <li><a href="Задачи.html">Задачи</a></li>
+                </ul>
+
+                <div class="nav-image">
+                    <img src="Медиа/Помощник.jpg" alt="Помощник">
+                </div>
+
+                <div class="nav-search">
+                    <form id="search-form">
+                        <input id="search-input" placeholder="Поиск по сайту..." type="text">
+                        <button type="submit">
+                            <span>🔍</span>
+                            <span>Найти</span>
+                        </button>
+                    </form>
+                    <div id="search-results"></div>
+                </div>
+            </nav>
+
+            <main>
+                <div class="test-item">
+                    <h3 id="test1">
+                        <span class="header-icon">▶</span>
+                        <span class="change">В</span>
+                        <span class="change">х</span>
+                        <span class="change">о</span>
+                        <span class="change">д</span>
+                        <span class="change">н</span>
+                        <span class="change">о</span>
+                        <span class="change">й</span>
+                        <span class="change"> </span>
+                        <span class="change"> </span>
+                        <span class="change">к</span>
+                        <span class="change">о</span>
+                        <span class="change">н</span>
+                        <span class="change">т</span>
+                        <span class="change">р</span>
+                        <span class="change">о</span>
+                        <span class="change">л</span>
+                        <span class="change">ь</span>
+                    </h3>
+                    <div class="test-content">
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">1. Что понимается под информацией?</div>
+                            <div class="answer-option"><input type="radio" name="q1" value="а"><label>а) Любые сведения о мире и процессах в нём.</label></div>
+                            <div class="answer-option"><input type="radio" name="q1" value="б"><label>б) Только цифровые данные.</label></div>
+                            <div class="answer-option"><input type="radio" name="q1" value="в"><label>в) Только знания, зафиксированные в книгах.</label></div>
+                            <div class="answer-option"><input type="radio" name="q1" value="г"><label>г) Лишь устная речь.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">2. Чем отличаются данные от информации?</div>
+                            <div class="answer-option"><input type="radio" name="q2" value="а"><label>а) Данные — это обработанные сведения, информация — необработанные.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2" value="б"><label>б) Данные — факты, информация — смысл, извлекаемый из них.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2" value="в"><label>в) Данные — это слухи, информация — официальные факты.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2" value="г"><label>г) Отличий нет.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">3. Укажите пример информации:</div>
+                            <div class="answer-option"><input type="radio" name="q3" value="а"><label>а) Набор чисел «5, 4, 3, 5».</label></div>
+                            <div class="answer-option"><input type="radio" name="q3" value="б"><label>б) Средний балл по этим числам.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3" value="в"><label>в) Просто запись «3+5».</label></div>
+                            <div class="answer-option"><input type="radio" name="q3" value="г"><label>г) Буквы «А, Б, В».</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">4. Какие бывают виды информации по форме представления?</div>
+                            <div class="answer-option"><input type="radio" name="q4" value="а"><label>а) Числовая, текстовая, графическая, звуковая, видео.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4" value="б"><label>б) Логическая и алгебраическая.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4" value="в"><label>в) Визуальная и виртуальная.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4" value="г"><label>г) Только текстовая.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">5. К какой сфере применения относится использование электронного журнала в школе?</div>
+                            <div class="answer-option"><input type="radio" name="q5" value="а"><label>а) Научные технологии.</label></div>
+                            <div class="answer-option"><input type="radio" name="q5" value="б"><label>б) Управленческие технологии.</label></div>
+                            <div class="answer-option"><input type="radio" name="q5" value="в"><label>в) Развлекательные технологии.</label></div>
+                            <div class="answer-option"><input type="radio" name="q5" value="г"><label>г) Инженерные технологии.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">6. Укажите пример инженерных информационных технологий:</div>
+                            <div class="answer-option"><input type="radio" name="q6" value="а"><label>а) Электронные учебники.</label></div>
+                            <div class="answer-option"><input type="radio" name="q6" value="б"><label>б) Системы автоматизированного проектирования (САПР).</label></div>
+                            <div class="answer-option"><input type="radio" name="q6" value="в"><label>в) Электронные карты пациентов.</label></div>
+                            <div class="answer-option"><input type="radio" name="q6" value="г"><label>г) Мессенджеры.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">7. Основная задача информационных технологий — это:</div>
+                            <div class="answer-option"><input type="radio" name="q7" value="а"><label>а) Передача данных по сети.</label></div>
+                            <div class="answer-option"><input type="radio" name="q7" value="б"><label>б) Обработка информации для получения нового знания.</label></div>
+                            <div class="answer-option"><input type="radio" name="q7" value="в"><label>в) Хранение всех данных в памяти.</label></div>
+                            <div class="answer-option"><input type="radio" name="q7" value="г"><label>г) Только программирование.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">8. Что является аналоговой формой представления данных?</div>
+                            <div class="answer-option"><input type="radio" name="q8" value="а"><label>а) Цифровая фотография.</label></div>
+                            <div class="answer-option"><input type="radio" name="q8" value="б"><label>б) Виниловая пластинка.</label></div>
+                            <div class="answer-option"><input type="radio" name="q8" value="в"><label>в) Таблица в Excel.</label></div>
+                            <div class="answer-option"><input type="radio" name="q8" value="г"><label>г) Сообщение в чате.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">9. Что является цифровой формой представления данных?</div>
+                            <div class="answer-option"><input type="radio" name="q9" value="а"><label>а) Звуковая волна.</label></div>
+                            <div class="answer-option"><input type="radio" name="q9" value="б"><label>б) Магнитофонная кассета.</label></div>
+                            <div class="answer-option"><input type="radio" name="q9" value="в"><label>в) Файл mp3 на флешке.</label></div>
+                            <div class="answer-option"><input type="radio" name="q9" value="г"><label>г) Человеческая речь.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">10. К какому этапу развития общества относится современное время?</div>
+                            <div class="answer-option"><input type="radio" name="q10" value="а"><label>а) Индустриальное.</label></div>
+                            <div class="answer-option"><input type="radio" name="q10" value="б"><label>б) Информационное.</label></div>
+                            <div class="answer-option"><input type="radio" name="q10" value="в"><label>в) Первобытное.</label></div>
+                            <div class="answer-option"><input type="radio" name="q10" value="г"><label>г) Аграрное.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">11. Какая технология появилась раньше?</div>
+                            <div class="answer-option"><input type="radio" name="q11" value="а"><label>а) Облачные сервисы.</label></div>
+                            <div class="answer-option"><input type="radio" name="q11" value="б"><label>б) Бумажные архивы.</label></div>
+                            <div class="answer-option"><input type="radio" name="q11" value="в"><label>в) Персональные компьютеры.</label></div>
+                            <div class="answer-option"><input type="radio" name="q11" value="г"><label>г) Интернет.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">12. Что относится к автоматическим технологиям?</div>
+                            <div class="answer-option"><input type="radio" name="q12" value="а"><label>а) Работа с Excel.</label></div>
+                            <div class="answer-option"><input type="radio" name="q12" value="б"><label>б) Архив бумажных документов.</label></div>
+                            <div class="answer-option"><input type="radio" name="q12" value="в"><label>в) Система «умный дом».</label></div>
+                            <div class="answer-option"><input type="radio" name="q12" value="г"><label>г) Ручное ведение журнала.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">13. Укажите пример хранения данных в иерархической форме:</div>
+                            <div class="answer-option"><input type="radio" name="q13" value="а"><label>а) Таблица в Excel.</label></div>
+                            <div class="answer-option"><input type="radio" name="q13" value="б"><label>б) Структура «папка → файлы» на компьютере.</label></div>
+                            <div class="answer-option"><input type="radio" name="q13" value="в"><label>в) Лента магнитофона.</label></div>
+                            <div class="answer-option"><input type="radio" name="q13" value="г"><label>г) Страницы книги.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">14. В каком виде данные чаще всего хранятся в базах данных?</div>
+                            <div class="answer-option"><input type="radio" name="q14" value="а"><label>а) В виде рисунков.</label></div>
+                            <div class="answer-option"><input type="radio" name="q14" value="б"><label>б) В таблицах (структурированно).</label></div>
+                            <div class="answer-option"><input type="radio" name="q14" value="в"><label>в) В устной речи.</label></div>
+                            <div class="answer-option"><input type="radio" name="q14" value="г"><label>г) В картинках и фото.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">15. Какой пример показывает переход данных в информацию?</div>
+                            <div class="answer-option"><input type="radio" name="q15" value="а"><label>а) Текст в чате → сообщение другу.</label></div>
+                            <div class="answer-option"><input type="radio" name="q15" value="б"><label>б) Баллы по предмету → вычисление среднего балла.</label></div>
+                            <div class="answer-option"><input type="radio" name="q15" value="в"><label>в) Набор букв → набор символов.</label></div>
+                            <div class="answer-option"><input type="radio" name="q15" value="г"><label>г) Набор картинок → набор картинок.</label></div>
+                        </div>
+                        <button class="check-test-button" data-test-id="test1">Проверить</button>
+                    </div>
+                </div>
+
+                <div class="test-item">
+                    <h3 id="test2">
+                        <span class="header-icon">▶</span>
+                        <span class="change">И</span>
+                        <span class="change">н</span>
+                        <span class="change">ф</span>
+                        <span class="change">о</span>
+                        <span class="change">р</span>
+                        <span class="change">м</span>
+                        <span class="change">а</span>
+                        <span class="change">ц</span>
+                        <span class="change">и</span>
+                        <span class="change">я</span>
+                    </h3>
+                    <div class="test-content">
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">1. Что является основным свойством информации?</div>
+                            <div class="answer-option"><input type="radio" name="q2_1" value="а"><label>а) Обязательно хранится на компьютере.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_1" value="б"><label>б) Должна быть достоверной и актуальной.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_1" value="в"><label>в) Не может быть передана человеку.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_1" value="г"><label>г) Существует только в цифровой форме.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">2. Что относится к способам восприятия информации человеком?</div>
+                            <div class="answer-option"><input type="radio" name="q2_2" value="а"><label>а) Интернет и телевидение.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_2" value="б"><label>б) Органы чувств (зрение, слух и др.).</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_2" value="в"><label>в) Компьютерные сети.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_2" value="г"><label>г) Электронные таблицы.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">3. Какой способ хранения информации является техническим?</div>
+                            <div class="answer-option"><input type="radio" name="q2_3" value="а"><label>а) Память человека.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_3" value="б"><label>б) Рукописная книга.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_3" value="в"><label>в) Флеш-накопитель.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_3" value="г"><label>г) Устная речь.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">4. К какой классификации относятся «образовательные ИТ»?</div>
+                            <div class="answer-option"><input type="radio" name="q2_4" value="а"><label>а) По этапам обработки информации.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_4" value="б"><label>б) По уровню автоматизации.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_4" value="в"><label>в) По сфере применения.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_4" value="г"><label>г) По форме представления.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">5. Основная задача информационных технологий:</div>
+                            <div class="answer-option"><input type="radio" name="q2_5" value="а"><label>а) Усложнение работы человека.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_5" value="б"><label>б) Автоматизация и ускорение обработки данных.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_5" value="в"><label>в) Замена информации данными.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_5" value="г"><label>г) Устранение памяти человека.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">6. Чем отличаются данные от информации?</div>
+                            <div class="answer-option"><input type="radio" name="q2_6" value="а"><label>а) Данные всегда содержат смысл, информация — нет.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_6" value="б"><label>б) Данные — это факты, информация — осмысленные данные.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_6" value="в"><label>в) Данные хранятся только в компьютере.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_6" value="г"><label>г) Информация — это набор символов.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">7. К какому виду данных относятся фотографии?</div>
+                            <div class="answer-option"><input type="radio" name="q2_7" value="а"><label>а) Числовые.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_7" value="б"><label>б) Текстовые.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_7" value="в"><label>в) Графические.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_7" value="г"><label>г) Звуковые.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">8. Какой этап развития общества связан с тем, что главным ресурсом стала информация?</div>
+                            <div class="answer-option"><input type="radio" name="q2_8" value="а"><label>а) Аграрное.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_8" value="б"><label>б) Индустриальное.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_8" value="в"><label>в) Информационное.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_8" value="г"><label>г) Традиционное.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">9. Какой этап развития информационных технологий связан с появлением первых ЭВМ?</div>
+                            <div class="answer-option"><input type="radio" name="q2_9" value="а"><label>а) Механический.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_9" value="б"><label>б) Электромеханический.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_9" value="в"><label>в) Электронный.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_9" value="г"><label>г) Современный.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">10. Какой современный пример можно отнести к информационным технологиям?</div>
+                            <div class="answer-option"><input type="radio" name="q2_10" value="а"><label>а) Рукописная книга.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_10" value="б"><label>б) Телеграф.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_10" value="в"><label>в) Искусственный интеллект.</label></div>
+                            <div class="answer-option"><input type="radio" name="q2_10" value="г"><label>г) Арифмометр.</label></div>
+                        </div>
+                        <button class="check-test-button" data-test-id="test2">Проверить</button>
+                    </div>
+                </div>
+
+                <div class="test-item">
+                    <h3 id="test3">
+                        <span class="header-icon">▶</span>
+                        <span class="change">Р</span>
+                        <span class="change">а</span>
+                        <span class="change">с</span>
+                        <span class="change">ш</span>
+                        <span class="change">и</span>
+                        <span class="change">р</span>
+                        <span class="change">е</span>
+                        <span class="change">н</span>
+                        <span class="change">н</span>
+                        <span class="change">ы</span>
+                        <span class="change">е</span>
+                        <span class="change"> </span>
+                        <span class="change"> </span>
+                        <span class="change">с</span>
+                        <span class="change">р</span>
+                        <span class="change">е</span>
+                        <span class="change">д</span>
+                        <span class="change">с</span>
+                        <span class="change">т</span>
+                        <span class="change">в</span>
+                        <span class="change">а</span>
+                        <span class="change"> </span>
+                        <span class="change"> </span>
+                        <span class="change">M</span>
+                        <span class="change">S</span>
+                        <span class="change"> </span>
+                        <span class="change">W</span>
+                        <span class="change">o</span>
+                        <span class="change">r</span>
+                        <span class="change">d</span>
+                    </h3>
+                    <div class="test-content">
+                        <div class="question-block" data-correct="B">
+                            <div class="question-text">1. Какое из утверждений о стилях в Word является наиболее точным?</div>
+                            <div class="answer-option"><input type="radio" name="q3_1" value="A"><label>а) Стили применяются только к заголовкам.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_1" value="B"><label>б) Изменение стиля автоматически изменяет форматирование всех элементов, где он применён.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_1" value="C"><label>в) Стили нельзя копировать между документами.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_1" value="D"><label>г) Каждый стиль связан только с одним шаблоном.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="C">
+                            <div class="question-text">2. При создании автоматического оглавления Word использует:</div>
+                            <div class="answer-option"><input type="radio" name="q3_2" value="A"><label>а) Размер шрифта текста.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_2" value="B"><label>б) Полужирное начертание.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_2" value="C"><label>в) Структуру, основанную на стилях «Заголовок 1», «Заголовок 2» и т.д.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_2" value="D"><label>г) Абзацные отступы.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="B">
+                            <div class="question-text">3. Какой тип поля вставляется в документ для автоматического отображения текущей даты и обновляется при каждом открытии файла?</div>
+                            <div class="answer-option"><input type="radio" name="q3_3" value="A"><label>а) { TIME }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_3" value="B"><label>б) { DATE }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_3" value="C"><label>в) { CREATEDATE }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_3" value="D"><label>г) { SAVEDATE }.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="B">
+                            <div class="question-text">4. В чём отличие между полем и автотекстом?</div>
+                            <div class="answer-option"><input type="radio" name="q3_4" value="A"><label>а) Поле содержит неизменяемый текст, автотекст — формулы.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_4" value="B"><label>б) Поле автоматически обновляется, автотекст — вставляется вручную.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_4" value="C"><label>в) Автотекст обновляется при каждом сохранении.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_4" value="D"><label>г) Поле и автотекст работают одинаково.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="D">
+                            <div class="question-text">5. Какой инструмент используется для автоматического формирования списка иллюстраций в документе?</div>
+                            <div class="answer-option"><input type="radio" name="q3_5" value="A"><label>а) Перекрёстные ссылки.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_5" value="B"><label>б) Поле { TOC }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_5" value="C"><label>в) Поле { TOC \h }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_5" value="D"><label>г) Поле { TOC \c \"Figure\" }.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="B">
+                            <div class="question-text">6. При выполнении операции «Слияние» (Mail Merge) основным документом является:</div>
+                            <div class="answer-option"><input type="radio" name="q3_6" value="A"><label>а) Файл Excel с данными.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_6" value="B"><label>б) Документ Word, содержащий текст и поля для вставки данных.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_6" value="C"><label>в) Шаблон макроса.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_6" value="D"><label>г) Любой документ, где используются формулы.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="B">
+                            <div class="question-text">7. Что произойдёт, если удалить источник данных после настройки слияния?</div>
+                            <div class="answer-option"><input type="radio" name="q3_7" value="A"><label>а) Word создаст копию данных внутри документа.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_7" value="B"><label>б) Слияние будет работать только при наличии оригинального файла.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_7" value="C"><label>в) Данные автоматически восстанавливаются при следующем запуске.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_7" value="D"><label>г) Word предложит импортировать из PDF.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="D">
+                            <div class="question-text">8. Для чего служит переключатель \p в полях перекрёстных ссылок Word (REF метка \p)?</div>
+                            <div class="answer-option"><input type="radio" name="q3_8" value="A"><label>а) Добавляет номер страницы.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_8" value="B"><label>б) Добавляет номер рисунка.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_8" value="C"><label>в) Добавляет текст ссылки в кавычках.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_8" value="D"><label>г) Показывает относительное расположение (например, "на следующей странице").</label></div>
+                        </div>
+                        <div class="question-block" data-correct="D">
+                            <div class="question-text">9. При работе с длинными документами для объединения нескольких файлов Word в один используют:</div>
+                            <div class="answer-option"><input type="radio" name="q3_9" value="A"><label>а) Вставку через «Объект → Текст из файла».</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_9" value="B"><label>б) Команду «Слияние данных».</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_9" value="C"><label>в) Вставку поля { INCLUDE }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_9" value="D"><label>г) И пункт A, и пункт C.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="C">
+                            <div class="question-text">10. Какова основная функция шаблонов документов (.dotx, .dotm)?</div>
+                            <div class="answer-option"><input type="radio" name="q3_10" value="A"><label>а) Хранить исходный текст документа.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_10" value="B"><label>б) Хранить только стили и автозамену.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_10" value="C"><label>в) Служить основой для создания однотипных документов с предустановленными параметрами.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_10" value="D"><label>г) Использоваться для конвертации форматов.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="A">
+                            <div class="question-text">11. Что делает макрос, записанный в Word?</div>
+                            <div class="answer-option"><input type="radio" name="q3_11" value="A"><label>а) Выполняет последовательность действий пользователя автоматически.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_11" value="B"><label>б) Только сохраняет шаблон.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_11" value="C"><label>в) Создаёт резервную копию документа.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_11" value="D"><label>г) Проверяет орфографию и пунктуацию.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="A">
+                            <div class="question-text">12. Какая команда используется для вставки в документ фрагмента из другого файла Word, который будет автоматически обновляться при изменении источника?</div>
+                            <div class="answer-option"><input type="radio" name="q3_12" value="A"><label>а) Вставка → Объект → Создать из файла → Связь с файлом.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_12" value="B"><label>б) Вставка → Текст → Текст из файла.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_12" value="C"><label>в) Слияние → Вставить поля.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_12" value="D"><label>г) Главная → Вставить → Вставить специальным образом.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="D">
+                            <div class="question-text">13. Как в Word организовать сквозную нумерацию таблиц и рисунков по всему документу?</div>
+                            <div class="answer-option"><input type="radio" name="q3_13" value="A"><label>а) Вручную, через автонумерацию.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_13" value="B"><label>б) Через «Вставить название» с категорией «Рисунок» и «Таблица».</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_13" value="C"><label>в) Вставить поля { SEQ }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_13" value="D"><label>г) Варианты B и C верны.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="A">
+                            <div class="question-text">14. Какая комбинация полей используется для автоматического обновления номеров рисунков и ссылок на них?</div>
+                            <div class="answer-option"><input type="radio" name="q3_14" value="A"><label>а) { SEQ Figure } и { REF }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_14" value="B"><label>б) { AUTOTEXT } и { HYPERLINK }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_14" value="C"><label>в) { PAGE } и { TOC }.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_14" value="D"><label>г) { LISTNUM } и { TIME }.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="C">
+                            <div class="question-text">15. При создании оглавления необходимо, чтобы:</div>
+                            <div class="answer-option"><input type="radio" name="q3_15" value="A"><label>а) Заголовки были набраны прописными буквами.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_15" value="B"><label>б) Заголовки имели нумерацию.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_15" value="C"><label>в) К заголовкам были применены стандартные стили «Заголовок 1», «Заголовок 2» и т.п.</label></div>
+                            <div class="answer-option"><input type="radio" name="q3_15" value="D"><label>г) Оглавление вставлялось вручную.</label></div>
+                        </div>
+                        <button class="check-test-button" data-test-id="test3">Проверить</button>
+                    </div>
+                </div>
+
+                <div class="test-item">
+                    <h3 id="test4">
+                        <span class="header-icon">▶</span>
+                        <span class="change">Р</span>
+                        <span class="change">о</span>
+                        <span class="change">л</span>
+                        <span class="change">ь</span>
+                        <span class="change"> </span>
+                        <span class="change"> </span>
+                        <span class="change">и</span>
+                        <span class="change">н</span>
+                        <span class="change">ф</span>
+                        <span class="change">о</span>
+                        <span class="change">р</span>
+                        <span class="change">м</span>
+                        <span class="change">а</span>
+                        <span class="change">ц</span>
+                        <span class="change">и</span>
+                        <span class="change">о</span>
+                        <span class="change">н</span>
+                        <span class="change">н</span>
+                        <span class="change">ы</span>
+                        <span class="change">х</span>
+                        <span class="change"> </span>
+                        <span class="change"> </span>
+                        <span class="change">т</span>
+                        <span class="change">е</span>
+                        <span class="change">х</span>
+                        <span class="change">н</span>
+                        <span class="change">о</span>
+                        <span class="change">л</span>
+                        <span class="change">о</span>
+                        <span class="change">г</span>
+                        <span class="change">и</span>
+                        <span class="change">й</span>
+                    </h3>
+                    <div class="test-content">
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">1. Что является главным ресурсом информационного общества?</div>
+                            <div class="answer-option"><input type="radio" name="q4_1" value="а"><label>а) Труд.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_1" value="б"><label>б) Информация.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_1" value="в"><label>в) Сырьё.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_1" value="г"><label>г) Энергия.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">2. Какая из перечисленных сфер наиболее активно использует ИТ для телемедицины?</div>
+                            <div class="answer-option"><input type="radio" name="q4_2" value="а"><label>а) Бизнес.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_2" value="б"><label>б) Здравоохранение.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_2" value="в"><label>в) Промышленность.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_2" value="г"><label>г) Образование.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">3. Какое из утверждений лучше всего отражает влияние ИТ на экономику?</div>
+                            <div class="answer-option"><input type="radio" name="q4_3" value="а"><label>а) Увеличение себестоимости производства.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_3" value="б"><label>б) Переход к цифровой экономике.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_3" value="в"><label>в) Сокращение рабочих мест во всех отраслях.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_3" value="г"><label>г) Упрощение ручного труда.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">4. Что является примером цифровизации?</div>
+                            <div class="answer-option"><input type="radio" name="q4_4" value="а"><label>а) Переписывание книги вручную.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_4" value="б"><label>б) Электронный дневник в школе.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_4" value="в"><label>в) Запись лекции в тетрадь.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_4" value="г"><label>г) Очередь в поликлинике без электронной записи.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">5. К какому риску использования ИТ относится «цифровое неравенство»?</div>
+                            <div class="answer-option"><input type="radio" name="q4_5" value="а"><label>а) Технический сбой.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_5" value="б"><label>б) Разрыв в доступе к технологиям между разными группами населения.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_5" value="в"><label>в) Утечка данных.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_5" value="г"><label>г) Вирусные атаки.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">6. Что из перечисленного можно отнести к преимуществам использования ИТ в образовании?</div>
+                            <div class="answer-option"><input type="radio" name="q4_6" value="а"><label>а) Зависимость от интернета.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_6" value="б"><label>б) Доступ к онлайн-курсам.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_6" value="в"><label>в) Потеря навыков устного общения.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_6" value="г"><label>г) Перегрузка студентов.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">7. Что является ключевой задачей информационной безопасности?</div>
+                            <div class="answer-option"><input type="radio" name="q4_7" value="а"><label>а) Сокращение количества пользователей.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_7" value="б"><label>б) Обеспечение конфиденциальности, целостности и доступности данных.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_7" value="в"><label>в) Создание новых социальных сетей.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_7" value="г"><label>г) Развитие облачных технологий.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">8. Какое из утверждений характеризует понятие «глобализация» в сфере ИТ?</div>
+                            <div class="answer-option"><input type="radio" name="q4_8" value="а"><label>а) Развитие локальных баз данных.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_8" value="б"><label>б) Стирание границ между странами через доступ к информации.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_8" value="в"><label>в) Повышение цен на интернет.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_8" value="г"><label>г) Увеличение количества бумажных документов.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">9. Какая технология позволила автоматизировать производственные линии и создать «умные фабрики»?</div>
+                            <div class="answer-option"><input type="radio" name="q4_9" value="а"><label>а) Телемедицина.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_9" value="б"><label>б) Искусственный интеллект и роботизация.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_9" value="в"><label>в) Электронная почта.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_9" value="г"><label>г) Социальные сети.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">10. Какое из утверждений верно по отношению к роли ИТ в здравоохранении?</div>
+                            <div class="answer-option"><input type="radio" name="q4_10" value="а"><label>а) Снижение необходимости в медицинских данных.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_10" value="б"><label>б) Использование ИТ ограничивается бухгалтерией больниц.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_10" value="в"><label>в) ИТ применяются для диагностики и хранения медицинских карт.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_10" value="г"><label>г) ИТ не применяются в медицине.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="г">
+                            <div class="question-text">11. Что НЕ относится к преимуществам ИТ в бизнесе?</div>
+                            <div class="answer-option"><input type="radio" name="q4_11" value="а"><label>а) Электронная коммерция.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_11" value="б"><label>б) CRM-системы.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_11" value="в"><label>в) Автоматизация бухгалтерии.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_11" value="г"><label>г) Полное отсутствие конкуренции.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">12. Какая из технологий больше всего способствует развитию дистанционного обучения?</div>
+                            <div class="answer-option"><input type="radio" name="q4_12" value="а"><label>а) Искусственный интеллект.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_12" value="б"><label>б) Виртуальные образовательные платформы.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_12" value="в"><label>в) Роботизация производства.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_12" value="г"><label>г) Электронное правительство.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">13. Какое высказывание наиболее точно отражает социальные последствия развития ИТ?</div>
+                            <div class="answer-option"><input type="radio" name="q4_13" value="а"><label>а) Рост бумажного документооборота.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_13" value="б"><label>б) Появление новых форм коммуникации.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_13" value="в"><label>в) Полное исчезновение профессий.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_13" value="г"><label>г) Уменьшение объёмов информации.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">14. Что является одной из основных проблем использования ИТ?</div>
+                            <div class="answer-option"><input type="radio" name="q4_14" value="а"><label>а) Повышение скорости передачи данных.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_14" value="б"><label>б) Угроза утечки персональной информации.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_14" value="в"><label>в) Увеличение объёма памяти устройств.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_14" value="г"><label>г) Улучшение глобальной связи.</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">15. Какое из утверждений о роли ИТ в современном обществе является наиболее точным?</div>
+                            <div class="answer-option"><input type="radio" name="q4_15" value="а"><label>а) ИТ используются только в образовании.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_15" value="б"><label>б) ИТ — это временное явление.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_15" value="в"><label>в) ИТ проникают во все сферы жизни и становятся основой развития общества.</label></div>
+                            <div class="answer-option"><input type="radio" name="q4_15" value="г"><label>г) ИТ применяются только для развлечений.</label></div>
+                        </div>
+                        <button class="check-test-button" data-test-id="test4">Проверить</button>
+                    </div>
+                </div>
+
+                <div class="test-item">
+                    <h3 id="test_variant1">
+                        <span class="header-icon">▶</span>
+                        <span class="change">В</span>
+                        <span class="change">х</span>
+                        <span class="change">о</span>
+                        <span class="change">д</span>
+                        <span class="change">н</span>
+                        <span class="change">о</span>
+                        <span class="change">й</span>
+                        <span class="change"> </span>
+                        <span class="change">к</span>
+                        <span class="change">о</span>
+                        <span class="change">н</span>
+                        <span class="change">т</span>
+                        <span class="change">р</span>
+                        <span class="change">о</span>
+                        <span class="change">л</span>
+                        <span class="change">ь</span>
+                        <span class="change">,</span>
+                        <span class="change"> </span>
+                        <span class="change">ч</span>
+                        <span class="change">а</span>
+                        <span class="change">с</span>
+                        <span class="change">т</span>
+                        <span class="change">ь</span>
+                        <span class="change"> </span>
+                        <span class="change">2</span>
+                        <span class="change">.</span>
+                        <span class="change"> </span>
+                        <span class="change">В</span>
+                        <span class="change">а</span>
+                        <span class="change">р</span>
+                        <span class="change">и</span>
+                        <span class="change">а</span>
+                        <span class="change">н</span>
+                        <span class="change">т</span>
+                        <span class="change"> </span>
+                        <span class="change">1</span>
+                    </h3>
+                    <div class="test-content">
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">1. Какое расширение имеют файлы презентаций PowerPoint?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q1" value="а"><label>а) .docx</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q1" value="б"><label>б) .xlsx</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q1" value="в"><label>в) .pptx</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q1" value="г"><label>г) .bmp</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">2. Что такое мультимедийная презентация?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q2" value="а"><label>а) Презентация, содержащая только текст</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q2" value="б"><label>б) Презентация, содержащая текст, изображения, аудио и видео</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q2" value="в"><label>в) Презентация, напечатанная на бумаге</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q2" value="г"><label>г) Презентация без слайдов</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">3. Как вставить видео в презентацию?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q3" value="а"><label>а) Вставка → Таблица</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q3" value="б"><label>б) Вставка → Видео</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q3" value="в"><label>в) Вставка → Диаграмма</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q3" value="г"><label>г) Вставка → SmartArt</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">4. Что такое анимация в презентации?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q4" value="а"><label>а) Смена слайдов</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q4" value="б"><label>б) Эффекты движения для объектов на слайде</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q4" value="в"><label>в) Фоновое изображение</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q4" value="г"><label>г) Звуковое сопровождение</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">5. Как сделать переход на другой слайд при нажатии на кнопку?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q5" value="а"><label>а) Добавить анимацию</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q5" value="б"><label>б) Добавить гиперссылку</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q5" value="в"><label>в) Добавить переход</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q5" value="г"><label>г) Добавить фон</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">6. Что такое гипертекст?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q6" value="а"><label>а) Текст большого объема</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q6" value="б"><label>б) Текст, содержащий гиперссылки</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q6" value="в"><label>в) Текст в формате PDF</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q6" value="г"><label>г) Текст с картинками</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">7. Какой тег HTML создает гиперссылку?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q7" value="а"><label>а) &lt;link&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q7" value="б"><label>б) &lt;a&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q7" value="в"><label>в) &lt;href&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q7" value="г"><label>г) &lt;url&gt;</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">8. Какое расширение имеют файлы веб-страниц?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q8" value="а"><label>а) .txt</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q8" value="б"><label>б) .doc</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q8" value="в"><label>в) .html</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q8" value="г"><label>г) .exe</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">9. Что такое веб-сайт?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q9" value="а"><label>а) Одна веб-страница</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q9" value="б"><label>б) Совокупность веб-страниц, связанных гиперссылками</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q9" value="в"><label>в) Программа для интернета</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q9" value="г"><label>г) Браузер</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">10. Какой тег создает заголовок страницы (то, что видно во вкладке браузера)?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q10" value="а"><label>а) &lt;h1&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q10" value="б"><label>б) &lt;head&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q10" value="в"><label>в) &lt;title&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q10" value="г"><label>г) &lt;body&gt;</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">11. Что такое модель?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q11" value="а"><label>а) Копия реального объекта</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q11" value="б"><label>б) Упрощенное подобие реального объекта</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q11" value="в"><label>в) Реальный объект</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q11" value="г"><label>г) Компьютерная программа</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">12. Какой этап моделирования является первым?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q12" value="а"><label>а) Разработка модели</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q12" value="б"><label>б) Постановка задачи</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q12" value="в"><label>в) Компьютерный эксперимент</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q12" value="г"><label>г) Анализ результатов</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">13. Что такое математическая модель?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q13" value="а"><label>а) Модель, построенная из пластилина</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q13" value="б"><label>б) Модель, описанная с помощью математических формул</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q13" value="в"><label>в) Рисунок объекта</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q13" value="г"><label>г) Словесное описание</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">14. Для чего нужна формализация?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q14" value="а"><label>а) Для перехода от реального объекта к модели</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q14" value="б"><label>б) Для печати модели</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q14" value="в"><label>в) Для рисования модели</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q14" value="г"><label>г) Для удаления модели</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">15. Что такое структура информации?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q15" value="а"><label>а) Способ организации и связей элементов информации</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q15" value="б"><label>б) Объем информации</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q15" value="в"><label>в) Цвет информации</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q15" value="г"><label>г) Носитель информации</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">16. Что такое алгоритм?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q16" value="а"><label>а) Последовательность действий для достижения цели</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q16" value="б"><label>б) Компьютерная программа</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q16" value="в"><label>в) Математическая формула</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q16" value="г"><label>г) Рисунок</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">17. Какая алгоритмическая структура используется для выбора действия в зависимости от условия?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q17" value="а"><label>а) Следование</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q17" value="б"><label>б) Ветвление</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q17" value="в"><label>в) Цикл</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q17" value="г"><label>г) Массив</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">18. Какая структура называется циклом?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q18" value="а"><label>а) Действия выполняются по порядку</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q18" value="б"><label>б) Действия повторяются многократно</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q18" value="в"><label>в) Выбирается одно из двух действий</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q18" value="г"><label>г) Выполняется одно действие</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">19. Что такое массив?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q19" value="а"><label>а) Переменная для одного числа</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q19" value="б"><label>б) Набор однотипных элементов с общим именем</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q19" value="в"><label>в) Текстовая строка</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q19" value="г"><label>г) Функция</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">20. Как обратиться к третьему элементу массива A?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q20" value="а"><label>а) A3</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q20" value="б"><label>б) A[3]</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q20" value="в"><label>в) A(3)</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q20" value="г"><label>г) 3A</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">21. Что такое база данных?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q21" value="а"><label>а) Программа для рисования</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q21" value="б"><label>б) Организованная совокупность данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q21" value="в"><label>в) Текстовый документ</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q21" value="г"><label>г) Электронная таблица</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">22. Что такое запись в базе данных?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q22" value="а"><label>а) Столбец таблицы</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q22" value="б"><label>б) Строка таблицы</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q22" value="в"><label>в) Название таблицы</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q22" value="г"><label>г) Отчет</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">23. Для чего предназначена форма в БД?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q23" value="а"><label>а) Для вывода данных на печать</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q23" value="б"><label>б) Для удобного ввода и просмотра данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q23" value="в"><label>в) Для поиска данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q23" value="г"><label>г) Для удаления таблиц</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">24. Что такое запрос в БД?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q24" value="а"><label>а) Инструмент для ввода данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q24" value="б"><label>б) Инструмент для отбора данных по условию</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q24" value="в"><label>в) Инструмент для оформления</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q24" value="г"><label>г) Инструмент для печати</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">25. Для чего нужен отчет в БД?</div>
+                            <div class="answer-option"><input type="radio" name="var1_q25" value="а"><label>а) Для ввода данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q25" value="б"><label>б) Для вывода данных на печать в структурированном виде</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q25" value="в"><label>в) Для редактирования таблиц</label></div>
+                            <div class="answer-option"><input type="radio" name="var1_q25" value="г"><label>г) Для создания форм</label></div>
+                        </div>
+                        <button class="check-test-button" data-test-id="test_variant1">Проверить</button>
+                    </div>
+                </div>
+
+                <div class="test-item">
+                    <h3 id="test_variant2">
+                        <span class="header-icon">▶</span>
+                        <span class="change">В</span>
+                        <span class="change">х</span>
+                        <span class="change">о</span>
+                        <span class="change">д</span>
+                        <span class="change">н</span>
+                        <span class="change">о</span>
+                        <span class="change">й</span>
+                        <span class="change"> </span>
+                        <span class="change">к</span>
+                        <span class="change">о</span>
+                        <span class="change">н</span>
+                        <span class="change">т</span>
+                        <span class="change">р</span>
+                        <span class="change">о</span>
+                        <span class="change">л</span>
+                        <span class="change">ь</span>
+                        <span class="change">,</span>
+                        <span class="change"> </span>
+                        <span class="change">ч</span>
+                        <span class="change">а</span>
+                        <span class="change">с</span>
+                        <span class="change">т</span>
+                        <span class="change">ь</span>
+                        <span class="change"> </span>
+                        <span class="change">2</span>
+                        <span class="change">.</span>
+                        <span class="change"> </span>
+                        <span class="change">В</span>
+                        <span class="change">а</span>
+                        <span class="change">р</span>
+                        <span class="change">и</span>
+                        <span class="change">а</span>
+                        <span class="change">н</span>
+                        <span class="change">т</span>
+                        <span class="change"> </span>
+                        <span class="change">2</span>
+                    </h3>
+                    <div class="test-content">
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">1. Какой режим просмотра презентации позволяет увидеть все слайды на одном экране?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q1" value="а"><label>а) Обычный</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q1" value="б"><label>б) Сортировщик слайдов</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q1" value="в"><label>в) Показ слайдов</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q1" value="г"><label>г) Страницы заметок</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">2. Что такое дизайн (тема) презентации?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q2" value="а"><label>а) Набор анимаций</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q2" value="б"><label>б) Готовое оформление слайдов</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q2" value="в"><label>в) Способ переключения слайдов</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q2" value="г"><label>г) Звуковое сопровождение</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">3. Как вставить звук в презентацию?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q3" value="а"><label>а) Вставка → Аудио</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q3" value="б"><label>б) Вставка → Видео</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q3" value="в"><label>в) Вставка → Рисунок</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q3" value="г"><label>г) Вставка → Таблица</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">4. Что такое триггер в презентации?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q4" value="а"><label>а) Фоновое изображение</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q4" value="б"><label>б) Объект, запускающий анимацию при нажатии</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q4" value="в"><label>в) Звуковой эффект</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q4" value="г"><label>г) Переход между слайдами</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">5. Какой эффект относится к анимации?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q5" value="а"><label>а) Смена слайда</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q5" value="б"><label>б) Вылет текста слева</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q5" value="в"><label>в) Изменение фона</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q5" value="г"><label>г) Печать слайда</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">6. Что означает HTML?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q6" value="а"><label>а) HyperText Markup Language</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q6" value="б"><label>б) High Technology Modern Language</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q6" value="в"><label>в) Home Tool Management Language</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q6" value="г"><label>г) Hyper Transfer Markup Language</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">7. Какой тег создает абзац?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q7" value="а"><label>а) &lt;p&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q7" value="б"><label>б) &lt;br&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q7" value="в"><label>в) &lt;h1&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q7" value="г"><label>г) &lt;div&gt;</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">8. Какой тег создает заголовок самого верхнего уровня?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q8" value="а"><label>а) &lt;h1&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q8" value="б"><label>б) &lt;h2&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q8" value="в"><label>в) &lt;h6&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q8" value="г"><label>г) &lt;head&gt;</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">9. В каком теге хранится основное содержание страницы?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q9" value="а"><label>а) &lt;head&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q9" value="б"><label>б) &lt;title&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q9" value="в"><label>в) &lt;body&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q9" value="г"><label>г) &lt;html&gt;</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">10. Как вставить картинку на веб-страницу?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q10" value="а"><label>а) &lt;img src="picture.jpg"&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q10" value="б"><label>б) &lt;picture&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q10" value="в"><label>в) &lt;a href="picture.jpg"&gt;</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q10" value="г"><label>г) &lt;image&gt;</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">11. Что такое компьютерная модель?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q11" value="а"><label>а) Модель, созданная с помощью компьютера</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q11" value="б"><label>б) Деревянная модель</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q11" value="в"><label>в) Пластилиновая модель</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q11" value="г"><label>г) Бумажная модель</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">12. Какой этап следует после компьютерного эксперимента?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q12" value="а"><label>а) Постановка задачи</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q12" value="б"><label>б) Разработка модели</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q12" value="в"><label>в) Анализ результатов</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q12" value="г"><label>г) Формализация</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">13. Что такое информационная модель?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q13" value="а"><label>а) Модель, описывающая информацию об объекте</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q13" value="б"><label>б) Физическая копия объекта</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q13" value="в"><label>в) Рисунок объекта</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q13" value="г"><label>г) Формула</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">14. Что такое иерархическая модель?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q14" value="а"><label>а) Модель, где элементы расположены в виде таблицы</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q14" value="б"><label>б) Модель, где элементы расположены по уровням (как дерево)</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q14" value="в"><label>в) Модель, где элементы связаны произвольно</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q14" value="г"><label>г) Модель в виде списка</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">15. Пример математической модели?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q15" value="а"><label>а) Формула расчета площади круга</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q15" value="б"><label>б) Фотография круга</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q15" value="в"><label>в) Рисунок круга</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q15" value="г"><label>г) Пластилиновый круг</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">16. Какая алгоритмическая структура называется следованием?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q16" value="а"><label>а) Действия выполняются по порядку</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q16" value="б"><label>б) Действия повторяются</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q16" value="в"><label>в) Выбирается одно из действий</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q16" value="г"><label>г) Действия пропускаются</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">17. Как записывается условие в блок-схеме?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q17" value="а"><label>а) В прямоугольнике</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q17" value="б"><label>б) В ромбе</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q17" value="в"><label>в) В овале</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q17" value="г"><label>г) В параллелограмме</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">18. Что такое индекс массива?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q18" value="а"><label>а) Имя массива</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q18" value="б"><label>б) Номер элемента массива</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q18" value="в"><label>в) Значение элемента</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q18" value="г"><label>г) Тип массива</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">19. Как объявить массив из 10 целых чисел на псевдокоде?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q19" value="а"><label>а) A[10] integer</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q19" value="б"><label>б) integer A[10]</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q19" value="в"><label>в) array A[1..10] of integer</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q19" value="г"><label>г) A[10] = integer</label></div>
+                        </div>
+                        <div class="question-block" data-correct="в">
+                            <div class="question-text">20. Какой тип данных могут хранить элементы массива?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q20" value="а"><label>а) Только числа</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q20" value="б"><label>б) Только текст</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q20" value="в"><label>в) Любой одинаковый тип</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q20" value="г"><label>г) Разные типы</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">21. Что такое поле в базе данных?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q21" value="а"><label>а) Строка таблицы</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q21" value="б"><label>б) Столбец таблицы</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q21" value="в"><label>в) Отчет</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q21" value="г"><label>г) Форма</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">22. Что такое первичный ключ?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q22" value="а"><label>а) Первое поле таблицы</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q22" value="б"><label>б) Поле, уникально идентифицирующее запись</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q22" value="в"><label>в) Поле с текстом</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q22" value="г"><label>г) Поле с числами</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">23. Какие объекты относятся к БД?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q23" value="а"><label>а) Таблицы, запросы, формы, отчеты</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q23" value="б"><label>б) Рисунки, видео, звук</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q23" value="в"><label>в) Текст, абзацы, страницы</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q23" value="г"><label>г) Ячейки, строки, столбцы</label></div>
+                        </div>
+                        <div class="question-block" data-correct="б">
+                            <div class="question-text">24. Для чего нужна сортировка в БД?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q24" value="а"><label>а) Для удаления записей</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q24" value="б"><label>б) Для упорядочивания записей</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q24" value="в"><label>в) Для добавления записей</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q24" value="г"><label>г) Для изменения структуры</label></div>
+                        </div>
+                        <div class="question-block" data-correct="а">
+                            <div class="question-text">25. Что такое СУБД?</div>
+                            <div class="answer-option"><input type="radio" name="var2_q25" value="а"><label>а) Система управления базами данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q25" value="б"><label>б) Система удаления больших данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q25" value="в"><label>в) Способ умножения баз данных</label></div>
+                            <div class="answer-option"><input type="radio" name="var2_q25" value="г"><label>г) Служба улучшения баз данных</label></div>
+                        </div>
+                        <button class="check-test-button" data-test-id="test_variant2">Проверить</button>
+                    </div>
+                </div>
+
+                <div class="test-item">
+                    <h3 id="test5">
+                        <span class="header-icon">▶</span>
+                        <span class="change">П</span>
+                        <span class="change">р</span>
+                        <span class="change">и</span>
+                        <span class="change">к</span>
+                        <span class="change">л</span>
+                        <span class="change">а</span>
+                        <span class="change">д</span>
+                        <span class="change">н</span>
+                        <span class="change">ы</span>
+                        <span class="change">е</span>
+                        <span class="change"> </span>
+                        <span class="change"> </span>
+                        <span class="change">и</span>
+                        <span class="change">н</span>
+                        <span class="change">ф</span>
+                        <span class="change">о</span>
+                        <span class="change">р</span>
+                        <span class="change">м</span>
+                        <span class="change">а</span>
+                        <span class="change">ц</span>
+                        <span class="change">и</span>
+                        <span class="change">о</span>
+                        <span class="change">н</span>
+                        <span class="change">н</span>
+                        <span class="change">ы</span>
+                        <span class="change">е</span>
+                        <span class="change"> </span>
+                        <span class="change"> </span>
+                        <span class="change">т</span>
+                        <span class="change">е</span>
+                        <span class="change">х</span>
+                        <span class="change">н</span>
+                        <span class="change">о</span>
+                        <span class="change">л</span>
+                        <span class="change">о</span>
+                        <span class="change">г</span>
+                        <span class="change">и</span>
+                        <span class="change">и</span>
+                    </h3>
+                    <div class="test-content">
+                        <div style="padding: 15px; background-color: #f9f9f9; border-radius: 8px; margin-bottom: 20px;">
+                            <p style="font-style: italic; margin-bottom: 15px;">Вопросы для самопроверки:</p>
+                            <ol style="margin: 0; padding-left: 20px;">
+                                <li style="margin-bottom: 12px;">Дайте определение прикладной информационной технологии. Чем она принципиально отличается от базовой (системной) технологии?</li>
+                                <li style="margin-bottom: 12px;">Назовите основную цель любой прикладной информационной технологии. Что является результатом её применения?</li>
+                                <li style="margin-bottom: 12px;">По какому основному критерию чаще всего классифицируют прикладные ИТ? Приведите примеры классов по этому критерию.</li>
+                                <li style="margin-bottom: 12px;">Что такое офисные информационные технологии? Перечислите не менее трёх типичных задач, которые они решают, и программные продукты для их решения.</li>
+                                <li style="margin-bottom: 12px;">Опишите, в чём заключается специфика и значение технологий обработки графической информации. Приведите примеры профессиональных графических редакторов.</li>
+                                <li style="margin-bottom: 12px;">Что включает в себя понятие "информационные технологии в управлении" (ИТ в управлении)? Назовите основной класс программных систем, используемых для этих целей.</li>
+                                <li style="margin-bottom: 12px;">Каковы основные функции систем управления базами данных (СУБД) как прикладной технологии? (Создание, ведение, использование).</li>
+                                <li style="margin-bottom: 12px;">Что такое геоинформационные системы (ГИС) и каковы их ключевые возможности? Приведите примеры их практического применения.</li>
+                                <li style="margin-bottom: 12px;">Какова роль информационных технологий в коммуникациях? Перечислите технологии, обеспечивающие синхронную и асинхронную коммуникацию.</li>
+                                <li style="margin-bottom: 12px;">Объясните, что подразумевается под "предметно-ориентированными" прикладными ИТ. Приведите два примера таких технологий для разных профессиональных сфер.</li>
+                                <li style="margin-bottom: 12px;">Назовите основные этапы (стадии) жизненного цикла типичной прикладной информационной технологии.</li>
+                                <li style="margin-bottom: 12px;">Проанализируйте тенденции развития прикладных ИТ. Какие современные тренды оказывают на них наибольшее влияние и почему?</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <p>Автор: Липчанская М.-К. В. | "ГСТ" | 2026г. </p>
+        </footer>
+    </div>
+
+    <script>
+    function checkTest(buttonElement) {
+        const testContent = buttonElement.closest('.test-content');
+        const questionBlocks = testContent.querySelectorAll('.question-block');
+        let totalQuestions = questionBlocks.length;
+        
+        if (totalQuestions === 0) {
+            let resultContainer = testContent.querySelector('.test-result');
+            if (!resultContainer) {
+                resultContainer = document.createElement('div');
+                resultContainer.className = 'test-result';
+                buttonElement.insertAdjacentElement('afterend', resultContainer);
+            }
+            resultContainer.innerHTML = '<strong>Внимание:</strong> Этот тест не содержит вариантов ответов. Используйте его для самопроверки.';
+            resultContainer.style.backgroundColor = '#fff3cd';
+            resultContainer.style.color = '#856404';
+            resultContainer.style.borderLeftColor = '#ffc107';
+            return;
+        }
+
+        let correctCount = 0;
+        questionBlocks.forEach(block => {
+            const correctAnswer = block.getAttribute('data-correct');
+            const radios = block.querySelectorAll('input[type="radio"]');
+            let selectedValue = null;
+            for (let radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+            let resultDiv = block.querySelector('.result-message');
+            if (!resultDiv) {
+                resultDiv = document.createElement('div');
+                resultDiv.className = 'result-message';
+                block.appendChild(resultDiv);
+            }
+            if (selectedValue === correctAnswer) {
+                correctCount++;
+                resultDiv.innerHTML = '✓ Правильно!';
+                resultDiv.className = 'result-message correct';
+            } else {
+                let correctLabel = '';
+                for (let option of block.querySelectorAll('.answer-option')) {
+                    const input = option.querySelector('input');
+                    if (input && input.value === correctAnswer) {
+                        const label = option.querySelector('label');
+                        correctLabel = label ? label.textContent : correctAnswer;
+                        break;
+                    }
+                }
+                resultDiv.innerHTML = `✗ Неправильно. Правильный ответ: ${correctLabel}`;
+                resultDiv.className = 'result-message incorrect';
+            }
+        });
+
+        let resultContainer = testContent.querySelector('.test-result');
+        if (!resultContainer) {
+            resultContainer = document.createElement('div');
+            resultContainer.className = 'test-result';
+            buttonElement.insertAdjacentElement('afterend', resultContainer);
+        }
+        
+        const percentage = (correctCount / totalQuestions * 100).toFixed(1);
+        let resultHTML = `<strong>Результат теста:</strong> ${correctCount} из ${totalQuestions} правильных ответов (${percentage}%)`;
+        
+        const testId = buttonElement.getAttribute('data-test-id');
+        
+        const certMap = {
+            'test1': 'Медиа/Сертификат_Входной_контроль.png',
+            'test2': 'Медиа/Сертификат_Информация.png',
+            'test3': 'Медиа/Сертификат_MS_Word.png',
+            'test4': 'Медиа/Сертификат_Роль_ИТ.png',
+            'test_variant1': 'Медиа/Сертификат_Входной_контроль_часть2_вариант1.png',
+            'test_variant2': 'Медиа/Сертификат_Входной_контроль_часть2_вариант2.png'
+        };
+        
+        const defaultCertPath = 'Медиа/Пример_сертификата.png';
+        
+        if (percentage >= 80 && certMap[testId]) {
+            resultHTML += `<a href="${certMap[testId]}" download="Сертификат.png" class="certificate-btn">Скачать сертификат</a>`;
+        } else if (percentage < 50) {
+            resultHTML += `<a href="${defaultCertPath}" download="Сертификат.png" class="certificate-btn">Скачать сертификат</a>`;
+        }
+        
+        resultContainer.innerHTML = resultHTML;
+
+        if (percentage >= 80) {
+            resultContainer.style.backgroundColor = '#d4edda';
+            resultContainer.style.color = '#155724';
+            resultContainer.style.borderLeftColor = '#28a745';
+        } else if (percentage >= 60) {
+            resultContainer.style.backgroundColor = '#fff3cd';
+            resultContainer.style.color = '#856404';
+            resultContainer.style.borderLeftColor = '#ffc107';
+        } else {
+            resultContainer.style.backgroundColor = '#f8d7da';
+            resultContainer.style.color = '#721c24';
+            resultContainer.style.borderLeftColor = '#dc3545';
+        }
+
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    const siteSearchIndex = {
+        'Главная 2.0.html': {
+            title: 'Главная страница',
+            keywords: ['информатика', 'гуковский', 'гст', 'пособие', 'учебно-методическое', 'аннотация', 'цель', 'задачи', 'структура', 'информационные системы', 'программирование', 'дисциплина', 'студенты', 'обучение', 'образование', 'техникум', 'строительный'],
+            description: 'Учебно-методическое пособие по информатике для студентов Гуковского строительного техникума'
+        },
+        'Программа.html': {
+            title: 'Программа дисциплины',
+            keywords: ['учебный план', 'рабочая программа', 'тематический план', 'часы', 'лекции', 'практика', 'самостоятельная работа', 'содержание', 'требования', 'компетенции', 'расписание', 'модули', 'разделы', 'темы', 'объем часов', 'аттестация', 'ИКТ-компетенции', 'алгоритмизация', 'тестирование'],
+            description: 'Рабочая программа дисциплины Информатика: содержание, тематический план, требования'
+        },
+        'Темы.html': {
+            title: 'Темы учебных занятий',
+            keywords: ['теория', 'конспекты', 'презентации', 'слайды', 'информация', 'компьютер', 'windows', 'linux', 'ос', 'программы', 'офис', 'word', 'excel', 'access', 'powerpoint', 'базы данных', 'sql', 'сети', 'интернет', 'html', 'css', 'javascript', 'алгоритмы', 'структуры данных', 'программирование', 'моделирование', 'графика', 'мультимедиа', 'информация и информационные процессы', 'подходы к измерению информации', 'устройство компьютера', 'кодирование информации', 'системы счисления', 'комбинаторика', 'теория множеств', 'математическая логика', 'компьютерные сети', 'локальные сети', 'поисковые системы', 'облачные сервисы', 'информационная безопасность', 'текстовые процессоры', 'структурированные документы', 'компьютерная графика', 'мультимедиа', 'презентации', 'гипертекст', 'моделирование', 'графы', 'деревья', 'математические модели', 'алгоритмические структуры', 'электронные таблицы', 'сортировка', 'фильтрация', 'формулы', 'функции', 'визуализация данных'],
+            description: 'Лекционные материалы по информатике: теория, конспекты по всем темам курса'
+        },
+        'Практика.html': {
+            title: 'Практические работы',
+            keywords: ['задания', 'упражнения', 'лабораторные', 'решения', 'примеры', 'код', 'программирование', 'python', 'алгоритмы', 'блок-схемы', 'паскаль', 'c++', 'java', 'офисные программы', 'word задания', 'excel задачи', 'access базы', 'сети настройка', 'html верстка', 'css стили', 'компас-3d', 'powerpoint', 'paint', 'Отчёты и документация в Excel', 'Построение графиков функций в Excel', 'Применение финансовых функций в Microsoft Excel', 'Работа в программной среде СУБД', 'Расчётные операции в MS Excel', 'Решение задач оптимального планирования', 'Решение уравнений и систем уравнений в MS Excel', 'Создание и работа с базой данных в MS Excel', 'Анализ и визуализация данных', 'Статистическая обработка данных и построение диаграмм', 'Технология накопления данных и обработки в Excel', 'Создание текстовой веб-страницы на языке HTML', 'Графический редактор создания растровых изображений', 'Создание анимированной графики', 'Графический редактор создания векторного изображения', 'Обработка цифровых растровых изображений в Paint.NET', 'Добавление рисунков и эффектов анимации в презентацию', 'Разработка презентации макеты оформления и разметка', 'Создание интерактивной викторины', 'Создание мультимедийной презентации с использованием триггеров', 'Создание презентации на профессиональную тематику', 'Автоматизация подготовки документов в программе MS Word', 'Использование возможностей текстового процессора', 'Оформление больших документов', 'Слияние документов MS Word', 'Работа с табличными документами', 'Создание списков и таблиц', 'Создание формул и рисунков', 'Создание текстовых документов на компьютере', 'Построение основных чертежных объектов в КОМПАС-3D', 'Построение трехмерных моделей в системе КОМПАС-3D', 'Математические модели в профессиональной области', 'Представление информации в различных системах счисления', 'Решение прикладных задач с использованием теории множеств', 'Решение прикладных задач с применением математической логики', 'Комплектация компьютерного рабочего места', 'Облачные хранилища', 'Яндекс.Диск', 'Примеры работы с поисковыми системами', 'Протоколы TCP/IP', 'Сетевое оборудование', 'Сетевые модели OSI', 'Создание ящика электронной почты'],
+            description: 'Практические задания по информатике: лабораторные работы, упражнения, решения'
+        },
+        'Тесты.html': {
+            title: 'Тесты и контроль',
+            keywords: ['тестирование', 'контрольная', 'опрос', 'экзамен', 'вопросы', 'ответы', 'варианты', 'проверка знаний', 'оценивание', 'зачёт', 'экзамен', 'итоговый контроль', 'промежуточная аттестация', 'тестовые задания', 'quiz', 'входной контроль', 'сертификат', 'информация', 'данные', 'аналоговая форма', 'цифровая форма', 'информационное общество', 'стили Word', 'автоматическое оглавление', 'поля DATE', 'автотекст', 'список иллюстраций', 'слияние Mail Merge', 'перекрёстные ссылки', 'шаблоны документов', 'макросы', 'сквозная нумерация', 'информационная безопасность', 'телемедицина', 'цифровая экономика', 'цифровое неравенство', 'глобализация', 'дистанционное обучение'],
+            description: 'Тесты для контроля знаний по информатике: вопросы, ответы, варианты заданий'
+        },
+        'Задачи.html': {
+            title: 'Интерактивные задачи',
+            keywords: ['задачи', 'упражнения', 'интерактив', 'двоичный счётчик', 'логические элементы', 'алгоритмы', 'соединение понятий', 'двоичная система', 'логика', 'тренажёр', 'практикум', 'биты', 'десятичное значение', 'алгоритм', 'программа', 'переменная', 'цикл', 'логический элемент И', 'логический элемент ИЛИ', 'логический элемент НЕ', 'AND', 'OR', 'NOT', 'входной сигнал'],
+            description: 'Интерактивные задачи по информатике: двоичный счётчик, логические элементы, соединение понятий'
+        }
+    };
+
+    const synonyms = {
+        'информатика': ['информатика', 'компьютерная наука', 'it', 'айти', 'компьютеры'],
+        'программа': ['программа', 'учебный план', 'курс', 'дисциплина', 'предмет'],
+        'лекции': ['лекции', 'теория', 'конспекты', 'презентации', 'слайды'],
+        'практика': ['практика', 'упражнения', 'лабораторные', 'задания', 'лабы'],
+        'тесты': ['тесты', 'контроль', 'экзамен', 'опрос', 'зачет', 'аттестация'],
+        'методичка': ['методичка', 'методические указания', 'рекомендации', 'инструкции'],
+        'windows': ['windows', 'операционная система', 'ос', 'виндовс', 'windows 10', 'windows 11'],
+        'python': ['python', 'программирование', 'язык программирования', 'питон', 'код'],
+        'базы данных': ['базы данных', 'бд', 'sql', 'данные', 'access', 'mysql'],
+        'html': ['html', 'верстка', 'веб', 'сайт', 'интернет'],
+        'css': ['css', 'стили', 'оформление', 'дизайн'],
+        'задачи': ['задачи', 'упражнения', 'задания', 'примеры', 'тренажёр'],
+        'логика': ['логика', 'логические элементы', 'и', 'или', 'не'],
+        'excel': ['excel', 'электронные таблицы', 'таблицы', 'эксель'],
+        'word': ['word', 'текстовый процессор', 'ворд', 'документы'],
+        'powerpoint': ['powerpoint', 'презентации', 'слайды', 'презентация']
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const testItems = document.querySelectorAll('.test-item');
+        testItems.forEach(item => {
+            const header = item.querySelector('h3');
+            const content = item.querySelector('.test-content');
+            content.classList.remove('open');
+            header.addEventListener('click', function(e) {
+                e.stopPropagation();
+                content.classList.toggle('open');
+                item.classList.toggle('open');
+            });
+        });
+
+        const checkButtons = document.querySelectorAll('.check-test-button');
+        checkButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                checkTest(this);
+            });
+        });
+
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'block';
+            
+            let foundResults = [];
+            
+            for (const [page, data] of Object.entries(siteSearchIndex)) {
+                let relevance = 0;
+                let matchedKeywords = [];
+                
+                data.keywords.forEach(keyword => {
+                    if (keyword.toLowerCase().includes(searchTerm) || searchTerm.includes(keyword.toLowerCase())) {
+                        relevance += 3;
+                        if (!matchedKeywords.includes(keyword)) matchedKeywords.push(keyword);
+                    }
+                });
+                
+                if (data.title.toLowerCase().includes(searchTerm)) relevance += 5;
+                if (data.description.toLowerCase().includes(searchTerm)) relevance += 2;
+                
+                for (const [mainTerm, synList] of Object.entries(synonyms)) {
+                    if (synList.some(syn => syn.includes(searchTerm) || searchTerm.includes(syn))) {
+                        if (data.keywords.some(kw => kw.toLowerCase().includes(mainTerm))) {
+                            relevance += 2;
+                            if (!matchedKeywords.includes(mainTerm)) matchedKeywords.push(mainTerm + ' (синоним)');
+                        }
+                    }
+                }
+                
+                if (relevance > 0) {
+                    foundResults.push({ page, title: data.title, description: data.description, relevance, matchedKeywords: matchedKeywords.slice(0, 4) });
+                }
+            }
+            
+            foundResults.sort((a, b) => b.relevance - a.relevance);
+            
+            if (foundResults.length > 0) {
+                foundResults.forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.style.padding = '12px';
+                    resultItem.style.borderBottom = '1px solid #eee';
+                    resultItem.style.cursor = 'pointer';
+                    resultItem.style.transition = 'background 0.2s';
+                    let relevanceColor = '#888';
+                    if (result.relevance >= 8) relevanceColor = '#008080';
+                    else if (result.relevance >= 5) relevanceColor = '#66CDAA';
+                    else if (result.relevance >= 3) relevanceColor = '#20B2AA';
+                    resultItem.innerHTML = `
+                        <div style="font-weight: bold; color: #008080; margin-bottom: 4px; font-size: 16px;">${result.title}</div>
+                        <div style="font-size: 14px; color: #666; margin-bottom: 6px;">${result.description}</div>
+                        <div style="font-size: 12px; color: #888; margin-bottom: 4px;"><strong>Ключевые слова:</strong> ${result.matchedKeywords.join(', ')}</div>
+                        <div style="font-size: 11px; color: ${relevanceColor}; margin-top: 4px;"><strong>Релевантность:</strong> ${result.relevance}/10</div>
+                    `;
+                    resultItem.onmouseenter = function() { this.style.background = '#f0f8ff'; this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)'; };
+                    resultItem.onmouseleave = function() { this.style.background = ''; this.style.boxShadow = ''; };
+                    resultItem.onclick = function() { window.location.href = result.page; };
+                    searchResults.appendChild(resultItem);
+                });
+                const stats = document.createElement('div');
+                stats.style.padding = '10px';
+                stats.style.fontSize = '13px';
+                stats.style.color = '#666';
+                stats.style.borderTop = '1px solid #eee';
+                stats.style.marginTop = '10px';
+                stats.style.background = '#f9f9f9';
+                stats.style.borderRadius = '0 0 4px 4px';
+                stats.innerHTML = `<strong>Найдено:</strong> ${foundResults.length} страниц по запросу "${searchTerm}"`;
+                searchResults.appendChild(stats);
+            } else {
+                searchResults.innerHTML = `<div style="padding: 30px; text-align: center;"><div style="font-size: 32px; color: #ccc; margin-bottom: 15px;">🔍</div><div style="font-weight: bold; color: #666; margin-bottom: 10px; font-size: 16px;">По запросу "${searchTerm}" ничего не найдено</div><div style="color: #888; font-size: 14px; margin-bottom: 15px;">Попробуйте изменить формулировку запроса</div></div>`;
+            }
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!searchForm.contains(e.target)) searchResults.style.display = 'none';
+        });
+        
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchResults.style.display = 'none';
+                this.value = '';
+            }
+        });
+        
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            const term = this.value.trim();
+            if (term.length >= 2) {
+                searchTimeout = setTimeout(() => searchForm.dispatchEvent(new Event('submit')), 300);
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

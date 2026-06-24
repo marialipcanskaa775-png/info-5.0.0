@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Электронное учебное пособие - Темы учебных занятий</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @font-face {
+            font-family: 'Jun';
+            src: url('ofont.ru_Jun.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .parallax {
+            background-image: url('Медиа/Фон_сайта!.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -2;
+        }
+
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(244, 244, 244, 0.85);
+            z-index: -1;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Jun', Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #2F4F4F;
+            font-size: 18px;
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background-color: #66CDAA;
+            background-image: url('Медиа/Фон_сайта2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 15px 20px 20px;
+            border-bottom: 5px solid #008080;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(102, 205, 170, 0.7);
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            padding-bottom: 10px;
+        }
+
+        .header-content h1, 
+        .header-content h2,
+        .header-content p {
+            color: #203A3A;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+            margin: 8px 0;
+        }
+
+        .header-content h1 {
+            margin-top: 0;
+            font-size: 2.8em;
+        }
+
+        .header-content h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .header-content p {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-color: #66CDAA;
+            background-image: url('Медиа/Фон_сайта2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 20px;
+            border-top: 5px solid #008080;
+            color: #2F4F4F;
+            font-size: 1.1em;
+            font-weight: 500;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(102, 205, 170, 0.7);
+            z-index: 0;
+        }
+
+        footer p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            color: #203A3A;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            border: 5px solid #008080;
+            min-height: 700px;
+        }
+
+        nav {
+            width: 250px;
+            border-right: 1px solid #ccc;
+            padding: 20px;
+            font-size: 1.1em;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        nav ul li {
+            margin-bottom: 12px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2F4F4F;
+            display: block;
+            padding: 5px 0;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+            color: #008080;
+        }
+
+        nav ul li strong {
+            color: #008080;
+            font-size: 1.1em;
+        }
+
+        .nav-image {
+            margin-top: 20px;
+            text-align: center;
+            padding: 0;
+            border: none;
+        }
+
+        .nav-image img {
+            max-width: 100%;
+            height: auto;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .nav-image .image-caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #2F4F4F;
+            font-style: italic;
+        }
+
+        .nav-search {
+            margin-top: 20px;
+            padding: 0;
+            border: none;
+        }
+
+        .nav-search form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-search input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #66CDAA;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Jun', Arial, sans-serif;
+            color: #2F4F4F;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-sizing: border-box;
+        }
+
+        .nav-search input::placeholder {
+            color: #66CDAA;
+        }
+
+        .nav-search input:focus {
+            outline: none;
+            border-color: #008080;
+            box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+        }
+
+        .nav-search button {
+            width: 100%;
+            padding: 12px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Jun', Arial, sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-search button:hover {
+            background-color: #006666;
+        }
+
+        .nav-search button:active {
+            background-color: #004d4d;
+            transform: translateY(1px);
+        }
+
+        #search-results {
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            background: white;
+            border: 1px solid #66CDAA;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        main {
+            padding: 25px;
+            flex: 1;
+            font-size: 1.1em;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            color: #2F4F4F;
+        }
+
+        main h3 {
+            color: #008080;
+            border-bottom: 2px solid #66CDAA;
+            padding-bottom: 8px;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 4px;
+            word-break: keep-all;
+        }
+
+        main h3:hover {
+            opacity: 0.8;
+            padding-left: 10px;
+        }
+
+        .section-item {
+            margin-bottom: 30px;
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding-left: 20px;
+        }
+
+        .section-content.open {
+            max-height: 3000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .topic-item {
+            margin: 15px 0 20px 0;
+            border-left: 3px solid #66CDAA;
+            padding-left: 15px;
+        }
+
+        .topic-title {
+            font-weight: bold;
+            color: #2F4F4F;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .topic-subitems {
+            list-style: none;
+            padding-left: 20px;
+            margin: 5px 0 0 0;
+        }
+
+        .topic-subitems li {
+            margin: 6px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .topic-subitems li .lecture-text {
+            flex: 1;
+        }
+
+        .topic-subitems li::before {
+            content: "•";
+            color: #66CDAA;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .download-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s;
+            opacity: 0.7;
+            vertical-align: middle;
+        }
+
+        .download-icon:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .header-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .section-item.open h3 .header-icon {
+            transform: rotate(90deg);
+        }
+
+        .change {
+            display: inline-block;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .change:hover {
+            color: #08fdd8 !important;
+            font-size: 30px !important;
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            main h3 {
+                font-size: 1.2em;
+                gap: 2px;
+            }
+            .change {
+                font-size: 0.9em;
+            }
+            .change:hover {
+                font-size: 1.1em !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main h3 {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parallax"></div>
+    
+    <div class="content-wrapper">
+        <header>
+            <div class="header-content">
+                <h1>ЭЛЕКТРОННОЕ УЧЕБНОЕ ПОСОБИЕ</h1>
+                <h2>по дисциплине «ИНФОРМАТИКА»</h2>
+                <p>Гуковский строительный техникум "ГСТ" • 09.02.07 "Информационные системы и программирование" • Данцева Кристина Андреевна • 2026г.</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="Главная 2.0.html">Главная</a></li>
+                    <li><a href="Программа.html">Программа</a></li>
+                    <li><strong>▶ Темы учебных занятий</strong></li>
+                    <li><a href="Практика.html">Практические работы</a></li>
+                    <li><a href="Тесты.html">Тесты</a></li>
+                    <li><a href="Задачи.html">Задачи</a></li>
+                </ul>
+
+                <div class="nav-image">
+                    <img src="Медиа/Помощник.jpg" alt="Помощник">
+                </div>
+                
+                <div class="nav-search">
+                    <form id="search-form">
+                        <input id="search-input" placeholder="Поиск по сайту..." type="text">
+                        <button type="submit">
+                            <span>🔍</span>
+                            <span>Найти</span>
+                        </button>
+                    </form>
+                    <div id="search-results"></div>
+                </div>
+            </nav>
+
+            <main>
+                <div class="section-item">
+                    <h3 id="section1">
+                        <span class="header-icon">▶</span>
+                        <span class="change">И</span><span class="change">н</span><span class="change">ф</span><span class="change">о</span><span class="change">р</span><span class="change">м</span><span class="change">а</span><span class="change">ц</span><span class="change">и</span><span class="change">я</span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">и</span><span class="change"> </span><span class="change"> </span><span class="change">и</span><span class="change">н</span><span class="change">ф</span><span class="change">о</span><span class="change">р</span><span class="change">м</span><span class="change">а</span><span class="change">ц</span><span class="change">и</span><span class="change">о</span><span class="change">н</span><span class="change">н</span><span class="change">а</span><span class="change">я</span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">д</span><span class="change">е</span><span class="change">я</span><span class="change">т</span><span class="change">е</span><span class="change">л</span><span class="change">ь</span><span class="change">н</span><span class="change">о</span><span class="change">с</span><span class="change">т</span><span class="change">ь</span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">ч</span><span class="change">е</span><span class="change">л</span><span class="change">о</span><span class="change">в</span><span class="change">е</span><span class="change">к</span><span class="change">а</span>
+                    </h3>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.1. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Информация и информационные процессы</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.1. Информация и информационные процессы.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.2. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Подходы к измерению информации</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.2. Подходы к измерению информации .pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.3. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Компьютер и цифровое представление информации. Устройство компьютера</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.3. Компьютер и цифровое представление информации. Устройство компьютера.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.4. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Кодирование информации. Системы счисления</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.4. Кодирование информации. Системы счисления.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.5. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Элементы комбинаторики, теории множеств и математической логики</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.5. Элементы комбинаторики, теории множеств и математической логики .pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.6. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Компьютерные сети: локальные сети, сеть Интернет</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.6. Компьютерные сети - локальные сети, сеть Интернет.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.7. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Службы Интернета. Поисковые системы. Поиск информации профессионального содержания</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.7. Службы Интернета. Поисковые системы. Поиск информации профессионального содержания.docx"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.8. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Сетевое хранение данных и цифрового контента. Облачные сервисы. Разделение прав доступа в облачных хранилищах. Соблюдение мер безопасности, предотвращающих незаконное распространение персональных данных</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.8. Сетевое хранение данных и цифрового контента. Облачные сервисы. Разделение прав доступа в облачных хранилищах. Соблюдение м.docx"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 1.9. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Информационная безопасность и тренды в развитии цифровых технологий; риски и прогнозы использования цифровых технологий при решении профессиональных задач</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 1. Информация и информационная деятельность человека/1.9. Информационная безопасность и тренды в развитии цифровых технологий; риски и прогнозы использования цифровых технологий при решении профессиональных задач.pdf"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-item">
+                    <h3 id="section2">
+                        <span class="header-icon">▶</span>
+                        <span class="change">И</span><span class="change">с</span><span class="change">п</span><span class="change">о</span><span class="change">л</span><span class="change">ь</span><span class="change">з</span><span class="change">о</span><span class="change">в</span><span class="change">а</span><span class="change">н</span><span class="change">и</span><span class="change">е</span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">п</span><span class="change">р</span><span class="change">о</span><span class="change">г</span><span class="change">р</span><span class="change">а</span><span class="change">м</span><span class="change">м</span><span class="change">н</span><span class="change">ы</span><span class="change">х</span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">с</span><span class="change">и</span><span class="change">с</span><span class="change">т</span><span class="change">е</span><span class="change">м</span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">и</span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">с</span><span class="change">е</span><span class="change">р</span><span class="change">в</span><span class="change">и</span><span class="change">с</span><span class="change">о</span><span class="change">в</span>
+                    </h3>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 2.1. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Обработка информации в текстовых процессорах</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 2. Использование программных средств и сервисов/2.1. Обработка информации в текстовых процессорах.docx"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 2.2. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Технологии создания структурированных текстовых документов</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 2. Использование программных средств и сервисов/2.2. Технологии создания структурированных текстовых документов.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 2.3. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Компьютерная графика и мультимедиа</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 2. Использование программных средств и сервисов/2.3. Компьютерная графика и мультимедиа.docx"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 2.4. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Технологии обработки графических объектов</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 2. Использование программных средств и сервисов/2.4. Технологии обработки графических объектов.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 2.5. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Представление профессиональной информации в виде презентаций</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 2. Использование программных средств и сервисов/2.5. Представление профессиональной информации в виде презентаций.docx"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 2.6. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Интерактивные и мультимедийные объекты на слайде</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 2. Использование программных средств и сервисов/2.6. Интерактивные и мультимедийные объекты на слайде.docx"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 2.7. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Гипертекстовое представление информации</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 2. Использование программных средств и сервисов/2.7. Гипертекстовое представление информации.docx"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-item">
+                    <h3 id="section3">
+                        <span class="header-icon">▶</span>
+                        <span class="change">И</span><span class="change">н</span><span class="change">ф</span><span class="change">о</span><span class="change">р</span><span class="change">м</span><span class="change">а</span><span class="change">ц</span><span class="change">и</span><span class="change">о</span><span class="change">н</span><span class="change">н</span><span class="change">о</span><span class="change">е</span><span class="change"> </span><span class="change"> </span>
+                        <span class="change">м</span><span class="change">о</span><span class="change">д</span><span class="change">е</span><span class="change">л</span><span class="change">и</span><span class="change">р</span><span class="change">о</span><span class="change">в</span><span class="change">а</span><span class="change">н</span><span class="change">и</span><span class="change">е</span>
+                    </h3>
+                    <div class="section-content">
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.1. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Модели и моделирование. Этапы моделирования</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.1. Модели и моделирование. Этапы моделирования.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.2. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Списки, графы, деревья</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.2. Списки, графы, деревья.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.3. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Математические модели в профессиональной области</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать DOCX" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.3. Математические модели в профессиональной области.docx"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.4. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Понятие алгоритма и основные алгоритмические структуры</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.4. Понятие алгоритма и основные алгоритмические структуры.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.5. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Анализ алгоритмов в профессиональной области</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.5. Анализ алгоритмов в профессиональной области.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.6. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Базы данных как модель предметной области. Таблицы и реляционные базы данных</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.6. Базы данных как модель предметной области. Таблицы и реляционные базы данных.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.7. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Технологии обработки информации в электронных таблицах. Сортировка, фильтрация, условное форматирование</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.7. Технологии обработки информации в электронных таблицах. Сортировка, фильтрация, условное форматирование.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.8. Основное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Формулы и функции в электронных таблицах</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.8. Формулы и функции в электронных таблицах.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.9. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Визуализация данных в электронных таблицах</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.9. Визуализация данных в электронных таблицах.pdf"></li>
+                            </ul>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-title">Тема 3.10. Профессионально-ориентированное содержание</div>
+                            <ul class="topic-subitems">
+                                <li><span class="lecture-text">Моделирование в электронных таблицах (на примерах задач из профессиональной области)</span><img src="Медиа/Сохранение.png" class="download-icon" alt="Скачать PDF" title="Скачать материал" data-file="Материалы для диплома/Лекции/Раздел 3. Информационное моделирование/3.10. Моделирование в электронных таблицах (на примерах задач из профессиональной области).pdf"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <footer>
+            <p>Автор: Липчанская М.-К. В. | "ГСТ" | 2026г. </p>
+        </footer>
+    </div>
+
+    <script>
+    const siteSearchIndex = {
+        'Главная 2.0.html': {
+            title: 'Главная страница',
+            keywords: ['информатика', 'гуковский', 'гст', 'пособие', 'учебно-методическое', 'аннотация', 'цель', 'задачи', 'структура', 'информационные системы', 'программирование', 'дисциплина', 'студенты', 'обучение', 'образование', 'техникум', 'строительный'],
+            description: 'Учебно-методическое пособие по информатике для студентов Гуковского строительного техникума'
+        },
+        'Программа.html': {
+            title: 'Программа дисциплины',
+            keywords: ['учебный план', 'рабочая программа', 'тематический план', 'часы', 'лекции', 'практика', 'самостоятельная работа', 'содержание', 'требования', 'компетенции', 'расписание', 'модули', 'разделы', 'темы', 'объем часов', 'аттестация', 'ИКТ-компетенции', 'алгоритмизация', 'тестирование'],
+            description: 'Рабочая программа дисциплины Информатика: содержание, тематический план, требования'
+        },
+        'Темы.html': {
+            title: 'Темы учебных занятий',
+            keywords: ['теория', 'конспекты', 'презентации', 'слайды', 'информация', 'компьютер', 'windows', 'linux', 'ос', 'программы', 'офис', 'word', 'excel', 'access', 'powerpoint', 'базы данных', 'sql', 'сети', 'интернет', 'html', 'css', 'javascript', 'алгоритмы', 'структуры данных', 'программирование', 'моделирование', 'графика', 'мультимедиа', 'информация и информационные процессы', 'подходы к измерению информации', 'устройство компьютера', 'кодирование информации', 'системы счисления', 'комбинаторика', 'теория множеств', 'математическая логика', 'компьютерные сети', 'локальные сети', 'поисковые системы', 'облачные сервисы', 'информационная безопасность', 'текстовые процессоры', 'структурированные документы', 'компьютерная графика', 'мультимедиа', 'презентации', 'гипертекст', 'моделирование', 'графы', 'деревья', 'математические модели', 'алгоритмические структуры', 'электронные таблицы', 'сортировка', 'фильтрация', 'формулы', 'функции', 'визуализация данных'],
+            description: 'Лекционные материалы по информатике: теория, конспекты по всем темам курса'
+        },
+        'Практика.html': {
+            title: 'Практические работы',
+            keywords: ['задания', 'упражнения', 'лабораторные', 'решения', 'примеры', 'код', 'программирование', 'python', 'алгоритмы', 'блок-схемы', 'паскаль', 'c++', 'java', 'офисные программы', 'word задания', 'excel задачи', 'access базы', 'сети настройка', 'html верстка', 'css стили', 'компас-3d', 'powerpoint', 'paint', 'Отчёты и документация в Excel', 'Построение графиков функций в Excel', 'Применение финансовых функций в Microsoft Excel', 'Работа в программной среде СУБД', 'Расчётные операции в MS Excel', 'Решение задач оптимального планирования', 'Решение уравнений и систем уравнений в MS Excel', 'Создание и работа с базой данных в MS Excel', 'Анализ и визуализация данных', 'Статистическая обработка данных и построение диаграмм', 'Технология накопления данных и обработки в Excel', 'Создание текстовой веб-страницы на языке HTML', 'Графический редактор создания растровых изображений', 'Создание анимированной графики', 'Графический редактор создания векторного изображения', 'Обработка цифровых растровых изображений в Paint.NET', 'Добавление рисунков и эффектов анимации в презентацию', 'Разработка презентации макеты оформления и разметка', 'Создание интерактивной викторины', 'Создание мультимедийной презентации с использованием триггеров', 'Создание презентации на профессиональную тематику', 'Автоматизация подготовки документов в программе MS Word', 'Использование возможностей текстового процессора', 'Оформление больших документов', 'Слияние документов MS Word', 'Работа с табличными документами', 'Создание списков и таблиц', 'Создание формул и рисунков', 'Создание текстовых документов на компьютере', 'Построение основных чертежных объектов в КОМПАС-3D', 'Построение трехмерных моделей в системе КОМПАС-3D', 'Математические модели в профессиональной области', 'Представление информации в различных системах счисления', 'Решение прикладных задач с использованием теории множеств', 'Решение прикладных задач с применением математической логики', 'Комплектация компьютерного рабочего места', 'Облачные хранилища', 'Яндекс.Диск', 'Примеры работы с поисковыми системами', 'Протоколы TCP/IP', 'Сетевое оборудование', 'Сетевые модели OSI', 'Создание ящика электронной почты'],
+            description: 'Практические задания по информатике: лабораторные работы, упражнения, решения'
+        },
+        'Тесты.html': {
+            title: 'Тесты и контроль',
+            keywords: ['тестирование', 'контрольная', 'опрос', 'экзамен', 'вопросы', 'ответы', 'варианты', 'проверка знаний', 'оценивание', 'зачёт', 'экзамен', 'итоговый контроль', 'промежуточная аттестация', 'тестовые задания', 'quiz', 'входной контроль', 'сертификат', 'информация', 'данные', 'аналоговая форма', 'цифровая форма', 'информационное общество', 'стили Word', 'автоматическое оглавление', 'поля DATE', 'автотекст', 'список иллюстраций', 'слияние Mail Merge', 'перекрёстные ссылки', 'шаблоны документов', 'макросы', 'сквозная нумерация', 'информационная безопасность', 'телемедицина', 'цифровая экономика', 'цифровое неравенство', 'глобализация', 'дистанционное обучение'],
+            description: 'Тесты для контроля знаний по информатике: вопросы, ответы, варианты заданий'
+        },
+        'Задачи.html': {
+            title: 'Интерактивные задачи',
+            keywords: ['задачи', 'упражнения', 'интерактив', 'двоичный счётчик', 'логические элементы', 'алгоритмы', 'соединение понятий', 'двоичная система', 'логика', 'тренажёр', 'практикум', 'биты', 'десятичное значение', 'алгоритм', 'программа', 'переменная', 'цикл', 'логический элемент И', 'логический элемент ИЛИ', 'логический элемент НЕ', 'AND', 'OR', 'NOT', 'входной сигнал'],
+            description: 'Интерактивные задачи по информатике: двоичный счётчик, логические элементы, соединение понятий'
+        }
+    };
+
+    const synonyms = {
+        'информатика': ['информатика', 'компьютерная наука', 'it', 'айти', 'компьютеры'],
+        'программа': ['программа', 'учебный план', 'курс', 'дисциплина', 'предмет'],
+        'лекции': ['лекции', 'теория', 'конспекты', 'презентации', 'слайды'],
+        'практика': ['практика', 'упражнения', 'лабораторные', 'задания', 'лабы'],
+        'тесты': ['тесты', 'контроль', 'экзамен', 'опрос', 'зачет', 'аттестация'],
+        'методичка': ['методичка', 'методические указания', 'рекомендации', 'инструкции'],
+        'windows': ['windows', 'операционная система', 'ос', 'виндовс', 'windows 10', 'windows 11'],
+        'python': ['python', 'программирование', 'язык программирования', 'питон', 'код'],
+        'базы данных': ['базы данных', 'бд', 'sql', 'данные', 'access', 'mysql'],
+        'html': ['html', 'верстка', 'веб', 'сайт', 'интернет'],
+        'css': ['css', 'стили', 'оформление', 'дизайн'],
+        'задачи': ['задачи', 'упражнения', 'задания', 'примеры', 'тренажёр'],
+        'логика': ['логика', 'логические элементы', 'и', 'или', 'не'],
+        'excel': ['excel', 'электронные таблицы', 'таблицы', 'эксель'],
+        'word': ['word', 'текстовый процессор', 'ворд', 'документы'],
+        'powerpoint': ['powerpoint', 'презентации', 'слайды', 'презентация']
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const sectionItems = document.querySelectorAll('.section-item');
+        sectionItems.forEach(item => {
+            const header = item.querySelector('h3');
+            const content = item.querySelector('.section-content');
+            content.classList.remove('open');
+            header.addEventListener('click', function(e) {
+                e.stopPropagation();
+                content.classList.toggle('open');
+                item.classList.toggle('open');
+            });
+        });
+
+        const downloadIcons = document.querySelectorAll('.download-icon');
+        downloadIcons.forEach(icon => {
+            icon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                let filePath = this.getAttribute('data-file');
+                if (filePath) {
+                    const link = document.createElement('a');
+                    link.href = filePath;
+                    link.download = '';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else {
+                    console.error('Путь к файлу не указан');
+                }
+            });
+        });
+
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'block';
+            
+            let foundResults = [];
+            
+            for (const [page, data] of Object.entries(siteSearchIndex)) {
+                let relevance = 0;
+                let matchedKeywords = [];
+                
+                data.keywords.forEach(keyword => {
+                    if (keyword.toLowerCase().includes(searchTerm) || searchTerm.includes(keyword.toLowerCase())) {
+                        relevance += 3;
+                        if (!matchedKeywords.includes(keyword)) matchedKeywords.push(keyword);
+                    }
+                });
+                
+                if (data.title.toLowerCase().includes(searchTerm)) relevance += 5;
+                if (data.description.toLowerCase().includes(searchTerm)) relevance += 2;
+                
+                for (const [mainTerm, synList] of Object.entries(synonyms)) {
+                    if (synList.some(syn => syn.includes(searchTerm) || searchTerm.includes(syn))) {
+                        if (data.keywords.some(kw => kw.toLowerCase().includes(mainTerm))) {
+                            relevance += 2;
+                            if (!matchedKeywords.includes(mainTerm)) matchedKeywords.push(mainTerm + ' (синоним)');
+                        }
+                    }
+                }
+                
+                if (relevance > 0) {
+                    foundResults.push({ page, title: data.title, description: data.description, relevance, matchedKeywords: matchedKeywords.slice(0, 4) });
+                }
+            }
+            
+            foundResults.sort((a, b) => b.relevance - a.relevance);
+            
+            if (foundResults.length > 0) {
+                foundResults.forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.style.padding = '12px';
+                    resultItem.style.borderBottom = '1px solid #eee';
+                    resultItem.style.cursor = 'pointer';
+                    resultItem.style.transition = 'background 0.2s';
+                    let relevanceColor = '#888';
+                    if (result.relevance >= 8) relevanceColor = '#008080';
+                    else if (result.relevance >= 5) relevanceColor = '#66CDAA';
+                    else if (result.relevance >= 3) relevanceColor = '#20B2AA';
+                    resultItem.innerHTML = `
+                        <div style="font-weight: bold; color: #008080; margin-bottom: 4px; font-size: 16px;">${result.title}</div>
+                        <div style="font-size: 14px; color: #666; margin-bottom: 6px;">${result.description}</div>
+                        <div style="font-size: 12px; color: #888; margin-bottom: 4px;"><strong>Ключевые слова:</strong> ${result.matchedKeywords.join(', ')}</div>
+                        <div style="font-size: 11px; color: ${relevanceColor}; margin-top: 4px;"><strong>Релевантность:</strong> ${result.relevance}/10</div>
+                    `;
+                    resultItem.onmouseenter = function() { this.style.background = '#f0f8ff'; this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)'; };
+                    resultItem.onmouseleave = function() { this.style.background = ''; this.style.boxShadow = ''; };
+                    resultItem.onclick = function() { window.location.href = result.page; };
+                    searchResults.appendChild(resultItem);
+                });
+                const stats = document.createElement('div');
+                stats.style.padding = '10px';
+                stats.style.fontSize = '13px';
+                stats.style.color = '#666';
+                stats.style.borderTop = '1px solid #eee';
+                stats.style.marginTop = '10px';
+                stats.style.background = '#f9f9f9';
+                stats.style.borderRadius = '0 0 4px 4px';
+                stats.innerHTML = `<strong>Найдено:</strong> ${foundResults.length} страниц по запросу "${searchTerm}"`;
+                searchResults.appendChild(stats);
+            } else {
+                searchResults.innerHTML = `
+                    <div style="padding: 30px; text-align: center;">
+                        <div style="font-size: 32px; color: #ccc; margin-bottom: 15px;">🔍</div>
+                        <div style="font-weight: bold; color: #666; margin-bottom: 10px; font-size: 16px;">По запросу "${searchTerm}" ничего не найдено</div>
+                        <div style="color: #888; font-size: 14px; margin-bottom: 15px;">Попробуйте изменить формулировку запроса</div>
+                    </div>`;
+            }
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!searchForm.contains(e.target)) searchResults.style.display = 'none';
+        });
+        
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchResults.style.display = 'none';
+                this.value = '';
+            }
+        });
+        
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            const term = this.value.trim();
+            if (term.length >= 2) {
+                searchTimeout = setTimeout(() => searchForm.dispatchEvent(new Event('submit')), 300);
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
